@@ -3,8 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+/* 解决某些机型点击事件延迟300ms才会触发 */
+import fastClick from 'fastclick'
 
-Vue.config.productionTip = false
+/* 设置基础样式，各个终端样式统一 */
+import './assets/styles/reset.css'
+/* 二倍屏、三倍屏的“1像素”问题 */
+import './assets/styles/border.css'
+
+Vue.config.productionTip = false;
+fastClick.attach(document.body);
 
 /* eslint-disable no-new */
 new Vue({
