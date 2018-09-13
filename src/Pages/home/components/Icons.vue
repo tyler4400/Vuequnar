@@ -16,30 +16,21 @@
 <script>
     export default {
         name: 'HomeIcons',
+        props: {
+            iconList: Array
+        },
         data () {
             return {
                 swiperOption: {
                     // pagination: '.swiper-pagination'
                     // , loop: true
                 }
-                , swiperList: [
-                    {id: "01", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "02", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "03", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "04", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "05", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "06", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "07", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "08", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "09", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                    {id: "10", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
-                ]
             };
         },
         computed: {
             pages () {
                 const pages = [];
-                this.swiperList.forEach((item, index) => {
+                this.iconList.forEach((item, index) => {
                     const pageIndex = Math.floor(index / 8);
                     if(!pages[pageIndex]) pages[pageIndex] = [];
                     pages[pageIndex].push(item);
