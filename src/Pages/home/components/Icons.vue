@@ -15,8 +15,8 @@
 
 <script>
     export default {
-        name: 'HomeIcons'
-        , data () {
+        name: 'HomeIcons',
+        data () {
             return {
                 swiperOption: {
                     // pagination: '.swiper-pagination'
@@ -35,8 +35,8 @@
                     {id: "10", imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png", desc: "热门景点"},
                 ]
             };
-        }
-        , computed: {
+        },
+        computed: {
             pages () {
                 const pages = [];
                 this.swiperList.forEach((item, index) => {
@@ -60,6 +60,7 @@
         overflow: hidden
         height: 0
         padding-bottom: 50%
+        padding-top: .1rem
         .icon
             overflow: hidden
             position: relative
