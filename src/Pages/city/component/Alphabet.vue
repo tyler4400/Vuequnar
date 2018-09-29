@@ -1,9 +1,17 @@
 <template>
     <ul class="list">
-
-
+        <li class="item"
+            v-for="item of letters"
+            :key="item"
+            :ref="item"
+            @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+            @click="handleLetterClick"
+        >
+            {{item}}
+        </li>
     </ul>
-    dadfadafafa
 </template>
 
 <script>
@@ -21,8 +29,8 @@
         },
         computed: {
             letters () {
-                const letdadadaters = []
-                for (let i in this.adada) {
+                const letters = []
+                for (let i in this.cities) {
                     letters.push(i)
                 }
                 return letters
