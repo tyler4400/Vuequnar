@@ -5,7 +5,7 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">北京</div>
+                        <div class="button">{{this.currentCity}}</div>
                     </div>
                 </div>
             </div>
@@ -16,6 +16,7 @@
                         class="button-wrapper"
                         v-for="item in hotCities"
                         :key="item.id"
+                        @click="handleCityClick(item.name)"
                     >
                         <div class="button">{{item.name}}</div>
                     </div>
@@ -28,6 +29,7 @@
                         class="item border-bottom"
                         v-for="innerItem of item"
                         :key="innerItem.id"
+                        @click="handleCityClick(innerItem.name)"
                     >
                         {{innerItem.name}}
                     </div>
@@ -38,7 +40,9 @@
 </template>
 
 <script>
-    import Bscroll from 'better-scroll'
+    import Bscroll from 'better-scroll';
+    import {mapState, mapMutations} from 'vuex';
+
     export default {
         name: 'CityList',
         props: {
@@ -46,8 +50,20 @@
             hotCities: Array,
             letter: String
         },
+        computed: {
+            ...mapState({
+                currentCity: 'city'
+            })
+        },
+        methods: {
+            handleCityClick (city) {
+                this.changeCity(city);
+                this.$router.push('/');
+            },
+            ...mapMutations(['changeCity'])
+        },
         mounted () {
-            this.scroll = new Bscroll(this.$refs.wrapper)
+            this.scroll = new Bscroll(this.$refs.wrapper);
         },
         watch: {
             letter (newV, oldV) {
@@ -57,7 +73,7 @@
                 this.scroll.scrollToElement(targetEl, timer);
             }
         }
-    }
+    };
 </script>
 
 <style lang="stylus" scoped>
@@ -67,9 +83,11 @@
             border-color: #ccc
         &:after
             border-color: #ccc
+
     .border-bottom
         &:before
             border-color: #ccc
+
     .list
         overflow: hidden
         position: absolute

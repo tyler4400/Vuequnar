@@ -25,26 +25,26 @@
                 touchStatus: false,
                 startY: 0,
                 timer: null
-            }
+            };
         },
         computed: {
             letters () {
-                const letters = []
+                const letters = [];
                 for (let i in this.cities) {
-                    letters.push(i)
+                    letters.push(i);
                 }
-                return letters
+                return letters;
             }
         },
         updated () {
-            this.startY = this.$refs['A'][0].offsetTop
+            this.startY = this.$refs['A'][0].offsetTop;
         },
         methods: {
             handleLetterClick (e) {
                 this.$emit('change', e.target.innerText);
             },
             handleTouchStart () {
-                this.touchStatus = true
+                this.touchStatus = true;
             },
             handleTouchMove (e) {
                 if (this.touchStatus) {
@@ -57,14 +57,14 @@
                         if (index >= 0 && index < this.letters.length) {
                             this.$emit('change', this.letters[index]);
                         }
-                    }, 16)
+                    }, 16);
                 }
             },
             handleTouchEnd () {
-                this.touchStatus = false
+                this.touchStatus = false;
             }
         }
-    }
+    };
 </script>
 
 <style lang="stylus" scoped>

@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper :options="swiperOption" >
+        <swiper :options="swiperOption">
             <swiper-slide v-for="(page, index) in pages" :key="index">
                 <div class="icon" v-for="icon in page" :key="icon.id">
                     <div class="icon-img">
@@ -32,13 +32,13 @@
                 const pages = [];
                 this.iconList.forEach((item, index) => {
                     const pageIndex = Math.floor(index / 8);
-                    if(!pages[pageIndex]) pages[pageIndex] = [];
+                    if (!pages[pageIndex]) pages[pageIndex] = [];
                     pages[pageIndex].push(item);
                 });
                 return pages;
             }
         }
-    }
+    };
 </script>
 
 <style lang="stylus" scoped>
@@ -47,6 +47,7 @@
     .icons >>> .swiper-container
         height: 0
         padding-bottom: 50%
+
     .icons
         overflow: hidden
         height: 0

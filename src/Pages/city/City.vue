@@ -23,11 +23,11 @@
             CityAlphabet
         },
         data () {
-            return{
+            return {
                 cities: [],
                 hotCities: [],
                 letter: ''
-            }
+            };
         },
         methods: {
             getCityInfo () {
@@ -36,7 +36,7 @@
             },
             handleGetCityInfoSucc (res) {
                 res = res.data;
-                if(res.ret && res.data){
+                if (res.ret && res.data) {
                     const data = res.data;
                     this.hotCities = data.hotCities;
                     this.cities = data.cities;
@@ -50,7 +50,7 @@
         mounted () {
             this.getCityInfo();
         }
-    }
+    };
 </script>
 
 <style scoped>

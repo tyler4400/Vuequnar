@@ -26,10 +26,9 @@
             weekendList: Array
         },
         data () {
-            return {
-            }
+            return {};
         }
-    }
+    };
 </script>
 
 <style lang="stylus" scoped>

@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/Pages/home/Home'
-import City from '@/Pages/city/City'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/Pages/home/Home';
+import City from '@/Pages/city/City';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
     routes: [
@@ -18,4 +18,4 @@ export default new Router({
             component: City
         }
     ]
-})
+});

@@ -1,11 +1,17 @@
 <template>
     <div>
         <div class="search">
-            <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音" />
+            <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音"/>
         </div>
         <div class="search-content" v-show="keyword" ref="wrapper">
             <ul>
-                <li class="search-item" v-for="item in list" :key="item.id">{{item.name}}</li>
+                <li class="search-item"
+                    v-for="item in list"
+                    :key="item.id"
+                    @click="handleCityClick(item.name)"
+                >
+                    {{item.name}}
+                </li>
                 <li class="search-item" v-show="noData">无匹配数据</li>
             </ul>
         </div>
@@ -13,7 +19,9 @@
 </template>
 
 <script>
-    import BScroll from 'better-scroll'
+    import BScroll from 'better-scroll';
+    import {mapMutations} from 'vuex';
+
     export default {
         name: 'Search',
         props: {
@@ -26,6 +34,13 @@
                 timer: null
             };
         },
+        methods: {
+            handleCityClick (city) {
+                this.changeCity(city);
+                this.$router.push('/');
+            },
+            ...mapMutations(['changeCity'])
+        },
         computed: {
             noData () {
                 return !this.list.length;
@@ -33,30 +48,30 @@
         },
         watch: {
             keyword () {
-                if (this.timer){
+                if (this.timer) {
                     clearTimeout(this.timer);
                 }
                 if (!this.keyword) {
-                    this.list = []
-                    return
+                    this.list = [];
+                    return;
                 }
                 this.timer = setTimeout(() => {
-                const result = [];
-                for (let i in this.cities){
-                    this.cities[i].forEach(value => {
-                        if(value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1){
-                            result.push(value);
-                        }
-                    })
-                }
-                this.list = result;
-                }, 300)
+                    const result = [];
+                    for (let i in this.cities) {
+                        this.cities[i].forEach(value => {
+                            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
+                                result.push(value);
+                            }
+                        });
+                    }
+                    this.list = result;
+                }, 300);
             }
         },
         mounted () {
-            this.scroll = new BScroll(this.$refs.wrapper)
+            this.scroll = new BScroll(this.$refs.wrapper);
         }
-    }
+    };
 </script>
 
 <style lang="stylus" scoped>
@@ -74,6 +89,7 @@
             text-align: center
             border-radius: .06rem
             color: #666
+
     .search-content
         z-index: 1
         overflow: hidden

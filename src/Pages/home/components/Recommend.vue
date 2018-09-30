@@ -15,16 +15,15 @@
 </template>
 
 <script>
-  export default {
-      name: 'Recommend',
-      props: {
-          recommendList: Array
-      },
-      data () {
-          return {
-          }
-      }
-  }
+    export default {
+        name: 'Recommend',
+        props: {
+            recommendList: Array
+        },
+        data () {
+            return {};
+        }
+    };
 
 </script>
 
@@ -35,6 +34,7 @@
         line-height: .8rem
         background: #eee
         text-indent: .2rem
+
     .item
         display: flex
         height: 1.9rem
