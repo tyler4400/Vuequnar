@@ -23,6 +23,6 @@ npm run unit
 # run all tests
 npm test
 ```
-
+注意 端口只能是1080，要不然发送请求的时候转发会出错
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
