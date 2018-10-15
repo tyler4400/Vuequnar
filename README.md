@@ -26,3 +26,12 @@ npm test
 注意 端口只能是1080，要不然发送请求的时候转发会出错
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+1.首先要回退本地分支：
+
+git reflog
+git reset --hard Obfafd
+1
+2
+2.紧接着强制推送到远程分支：
+
+git push -f origin master ## 这里假设只有一个master分支
