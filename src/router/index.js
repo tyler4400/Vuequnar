@@ -11,17 +11,17 @@ export default new Router({
         {
             path: '/',
             name: 'Home',
-            component: Home
+            component: () => import('@/Pages/home/Home')
         },
         {
             path: '/city',
             name: 'City',
-            component: City
+            component: () => import('@/Pages/city/City')
         },
         {
             path: '/detail/:id',
             name: 'detail',
-            component: Detail
+            component: () => import('@/Pages/detail/Detail')
         }
     ],
     scrollBehavior (to, from, savedPosition) {
