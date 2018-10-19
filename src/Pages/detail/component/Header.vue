@@ -28,7 +28,7 @@
                 opacityStyle: {
                     opacity: 0
                 }
-            }
+            };
         },
         methods: {
             handleScroll () {
@@ -43,11 +43,11 @@
                 }
             }
         },
-        activated () {
-            window.addEventListener('scroll', this.handleScroll)
+        mounted () {
+            window.addEventListener('scroll', this.handleScroll);
         },
-        deactivated () {
-            window.removeEventListener('scroll', this.handleScroll)
+        beforeDestroy () {
+            window.removeEventListener('scroll', this.handleScroll);
         }
     };
 </script>
@@ -67,6 +67,7 @@
         .header-abs-back
             color: #fff
             font-size: .4rem
+
     .header-fixed
         z-index: 2
         position: fixed

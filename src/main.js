@@ -7,7 +7,8 @@ import store from './store';
 
 /* 解决某些机型点击事件延迟300ms才会触发 */
 import fastClick from 'fastclick';
-
+/* 使不支持promise的手机支持 */
+import 'babel-polyfill'
 /* 轮播插件 */
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 
