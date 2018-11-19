@@ -31,3 +31,8 @@ git reset --hard Obfafd
 
 2.紧接着强制推送到远程分支：
 git push -f origin master ## 这里假设只有一个master分支
+
+<hr>
+# 使用nginx转发，nodejs做后台服务器
+1. webpack前端开发服务器 8080端口
+2. 接口数据转发到8070端口，node后台服务器监听8070端口
