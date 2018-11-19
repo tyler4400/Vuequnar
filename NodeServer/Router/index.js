@@ -30,13 +30,13 @@ router.use(function timeLog(request, response, next) {
 	console.log(request.params);
 	console.log('cookies:')
 	console.log(request.cookies);
-	
+
 
 	response.set({'dd':'cc'});	//修改响应头
 	response.type('application/json');
 	next();
 });
- 
+
 //对特定url进行过滤
 router.use('/remote/', function (request, response, next) {
 	console.log(request.session);
@@ -109,6 +109,13 @@ router.post('/remote/InnerTrs.do', controller.InnerTrs);
 router.post('/remote/logout.do', controller.logout);
 
 
+////test
+router.get('/api/city.json', controller.Qcity);
 
+// //test2
+router.get('/api/detail.json', controller.Qdetail);
+
+// //test3
+router.get('/api/index.json', controller.Qindex);
 module.exports = router;
 
